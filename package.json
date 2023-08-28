@@ -1,0 +1,13 @@
+{
+  "name": "grundsteuer-static",
+  "description": "",
+  "scripts": {
+    "build": "npm run generate:css -- --minify",
+    "generate:css": "npx tailwindcss -i input.css -o output.css"
+  },
+  "license": "",
+  "dependencies": {
+    "@tailwindcss/typography": "github:tailwindcss/typography",
+    "tailwindcss": "^3.3.3"
+  }
+}

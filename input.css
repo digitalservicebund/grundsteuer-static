@@ -1,0 +1,347 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* BundesSans */
+  @font-face {
+    font-family: "BundesSansWeb";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("ressources/fonts/BundesSansWeb-Regular.woff2") format("woff2"),
+      url("ressources/fonts/BundesSansWeb-Regular.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "BundesSansWeb";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("ressources/fonts/BundesSansWeb-Italic.woff2") format("woff2"),
+      url("ressources/fonts/BundesSansWeb-Italic.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "BundesSansWeb";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("ressources/fonts/BundesSansWeb-Bold.woff2") format("woff2"),
+      url("ressources/fonts/BundesSansWeb-Bold.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "BundesSansWeb";
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url("ressources/fonts/BundesSansWeb-BoldItalic.woff2") format("woff2"),
+      url("ressources/fonts/BundesSansWeb-BoldItalic.woff") format("woff");
+  }
+
+  /* BundesSerif */
+  @font-face {
+    font-family: "BundesSerifWeb";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("ressources/fonts/BundesSerifWeb-Regular.woff2") format("woff2"),
+      url("ressources/fonts/BundesSerifWeb-Regular.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "BundesSerifWeb";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("ressources/fonts/BundesSerifWeb-Italic.woff2") format("woff2"),
+      url("ressources/fonts/BundesSerifWeb-Italic.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "BundesSerifWeb";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("ressources/fonts/BundesSerifWeb-Bold.woff2") format("woff2"),
+      url("ressources/fonts/BundesSerifWeb-Bold.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "BundesSerifWeb";
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url("ressources/fonts/BundesSerifWeb-BoldItalic.woff2") format("woff2"),
+      url("ressources/fonts/BundesSerifWeb-BoldItalic.woff") format("woff");
+  }
+
+  /* BundesSans Condensed */
+  @font-face {
+    font-family: "BundesSansCondWeb";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("ressources/fonts/BundesSansCondWeb.woff2") format("woff2"),
+      url("ressources/fonts/BundesSansCondWeb.woff") format("woff");
+  }
+
+  .w-fit {
+    width: fit-content;
+  }
+
+  .input-width {
+    max-width: 412px;
+  }
+
+  .text-11 {
+    font-size: 0.6875rem;
+  }
+
+  .tracking-1 {
+    letter-spacing: 0.0625em;
+  }
+
+  .stack > * + * {
+    @apply mt-24;
+  }
+}
+
+@layer components {
+  /* accordion */
+  .accordion-summary:focus:not(:focus-visible) {
+    @apply outline-none;
+  }
+
+  /* button */
+  .button:focus:not(:focus-visible) {
+    @apply outline-none;
+  }
+
+  .navigation-link:focus:not(:focus-visible) {
+    @apply shadow-none;
+  }
+
+  /* button-container */
+  .button-container > * {
+    @apply flex-grow;
+  }
+
+  /* form-group */
+  .form-group {
+    @apply mb-24;
+  }
+
+  .form-group:last-of-type {
+    @apply mb-80;
+  }
+
+  /* checkbox */
+  .checkbox__input {
+    @apply sr-only;
+  }
+  .checkbox__label {
+    position: relative;
+    display: inline-block;
+    padding-top: 7px;
+    padding-left: 48px;
+    min-height: 40px;
+    touch-action: manipulation;
+    cursor: pointer;
+  }
+  .checkbox__label::before,
+  .checkbox__label::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+  }
+  .checkbox__label::before {
+    left: 0;
+    width: 40px;
+    height: 40px;
+    box-shadow: inset 0 0 0 2px #004b76;
+  }
+  .checkbox__input:focus + .checkbox__label:not(.has-error)::before {
+    box-shadow: inset 0 0 0 4px #004b76;
+  }
+  .checkbox__input:not(:focus-visible):focus
+    + .checkbox__label:not(.has-error)::before {
+    box-shadow: inset 0 0 0 2px #004b76;
+  }
+  .checkbox__input:focus-visible + .checkbox__label::before {
+    box-shadow: inset 0 0 0 4px #004b76;
+  }
+  .checkbox__input:not(:disabled):hover + .checkbox__label::before {
+    box-shadow: inset 0 0 0 4px #004b76;
+  }
+  .checkbox__input:checked + .checkbox__label::after {
+    top: 20px;
+    left: 19px;
+    width: 17px;
+    height: 7px;
+    transform: rotate(-48deg) translateY(-8px);
+    border: solid;
+    border-width: 0 0 2px 2px;
+    border-color: #004b76;
+  }
+  .checkbox__input[disabled] + .checkbox__label::before {
+    box-shadow: inset 0 0 0 2px #b8bdc3;
+  }
+  .checkbox__input[disabled] + .checkbox__label::after {
+    border-color: #b8bdc3;
+  }
+  .checkbox__input[disabled] + .checkbox__label {
+    cursor: default;
+  }
+  .checkbox__label.has-error::before {
+    box-shadow: inset 0 0 0 2px #b0243f;
+  }
+
+  /* radio */
+  .radio__input {
+    @apply sr-only;
+  }
+  .radio__label {
+    position: relative;
+    display: inline-block;
+    padding-top: 7px;
+    padding-left: 48px;
+    min-height: 40px;
+    touch-action: manipulation;
+    cursor: pointer;
+  }
+  .radio__label::before,
+  .radio__label::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  .radio__label::before {
+    left: 0;
+    width: 40px;
+    height: 40px;
+    box-shadow: inset 0 0 0 2px #004b76;
+    border-radius: 50%;
+  }
+  .radio__input:focus + .radio__label::before {
+    box-shadow: inset 0 0 0 4px #004b76;
+  }
+  .radio__input:not(:focus-visible):focus + .radio__label::before {
+    box-shadow: inset 0 0 0 2px #004b76;
+  }
+  .radio__input:focus-visible + .radio__label::before {
+    box-shadow: inset 0 0 0 4px #004b76;
+  }
+  .radio__input:not(:disabled):hover + .radio__label::before {
+    box-shadow: inset 0 0 0 4px #004b76;
+  }
+  .radio__input:checked + .radio__label::after {
+    left: 8px;
+    width: 0;
+    height: 0;
+    border: solid 12px #004b76;
+    background-color: #004b76;
+    border-radius: 50%;
+  }
+  .radio__input[disabled] + .radio__label::before {
+    box-shadow: inset 0 0 0 2px #b8bdc3;
+  }
+  .radio__input[disabled] + .radio__label::after {
+    border-color: #b8bdc3;
+    background-color: #b8bdc3;
+  }
+  .radio__input[disabled] + .radio__label {
+    cursor: default;
+  }
+
+  /* radio with image */
+
+  .radio-image-card {
+    background: #ffffff;
+    display: flex;
+    flex-direction: row;
+  }
+
+  /* select */
+  .select {
+    appearance: none;
+    background-position: right 16px center;
+    background-repeat: no-repeat;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path d="M1.41 0.294983L6 4.87498L10.59 0.294983L12 1.70498L6 7.70498L0 1.70498L1.41 0.294983Z" fill="black"/></svg>');
+    line-height: 60px;
+  }
+  .select::-ms-expand {
+    display: none;
+  }
+
+  /* rounded-placeholder */
+  .rounded-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 50%;
+  }
+
+  /* top-navigation */
+  #top-navigation:checked ~ * .top-navigation__menu-button {
+    @apply bg-blue-200;
+  }
+
+  #top-navigation:checked ~ * .top-navigation__menu-icon {
+    @apply hidden;
+  }
+
+  #top-navigation:checked ~ * .top-navigation__close-icon {
+    @apply block;
+  }
+
+  /* enumerate icon */
+  .enumerate-icon {
+    background: #004b76;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 50%;
+  }
+
+  /* enumerate card */
+  .enumerate-card {
+    background: #ecf1f4;
+    display: flex;
+    flex-direction: row;
+    border-radius: 8px;
+  }
+
+  /* Hide arrow in accordions  */
+  details > summary::marker, /* Latest Chrome, Edge, Firefox */
+  details > summary::-webkit-details-marker /* Safari */ {
+    display: none;
+  }
+
+}
