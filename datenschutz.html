@@ -49,8 +49,34 @@
   </head>
 
   <body>
-    <main class="flex-grow bg-gray-100 pb-64 md:pb-80 lg:pb-112">
-      <div class="max-w-screen-xl mx-auto px-16 md:px-32 lg:px-128">
+    <header>
+      <div
+        class="lg:hidden max-w-screen-xl mx-auto px-16 md:px-32 lg:px-64 w-full flex flex-row justify-between"
+      >
+        <a class="block py-32" href="/"
+          ><img
+            src="ressources/images/logo.svg"
+            alt="Grundsteuererklärung für Privateigentum"
+        /></a>
+      </div>
+      <div
+        class="hidden lg:block bg-white lg:shadow-[0px_4px_10px_rgba(0,0,0,0.1)] lg:relative lg:z-10"
+      >
+        <div
+          class="max-w-screen-xl mx-auto px-16 md:px-32 lg:px-64 w-full flex flex-row justify-between"
+        >
+          <a class="block py-32" href="index.html"
+            ><img
+              src="ressources/images/logo.svg"
+              alt="Grundsteuererklärung für Privateigentum"
+          /></a>
+        </div>
+      </div>
+    </header>
+    <main class="bg-gray-100">
+      <div
+        class="pb-64 md:pb-80 lg:pb-112 max-w-screen-xl mx-auto px-16 md:px-32 lg:px-64"
+      >
         <div class="pt-32 mb-32 md:mb-64">
           <div
             class="ml-8 text-10 leading-13 md:ml-0 md:text-16 md:leading-26 lg:mt-16"
