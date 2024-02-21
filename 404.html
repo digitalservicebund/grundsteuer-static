@@ -49,6 +49,19 @@
       href="ressources/images/apple-touch-icon.png"
     />
     <link rel="manifest" href="/site.webmanifest" />
+    <style id="antiClickjack">
+      body {
+        display: none !important;
+      }
+    </style>
+    <script type="text/javascript">
+      if (self === top) {
+        var antiClickjack = document.getElementById("antiClickjack");
+        antiClickjack.parentNode.removeChild(antiClickjack);
+      } else {
+        top.location = self.location;
+      }
+    </script>
   </head>
   <body>
     <main class="bg-gray-100 flex-grow pt-32">
